@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">30 Days Of Fitness</string>
     <string name="day">Day %s</string>
+    <string name="expand_button_content_description">See more or less information about the exercise.</string>
+
     <string name="day1_title">Jumping Jacks</string>
     <string name="day1_description">Jump with legs spread and hands touching overhead. Great cardio.</string>
     <string name="day2_title">Classic Squats</string>
