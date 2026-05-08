@@ -7,11 +7,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -119,6 +122,37 @@ fun ExerciseItemDarkThemePreview() {
     FitnessDaysTheme(darkTheme = true) {
         ExerciseItem(
             item = exercise
+        )
+    }
+}
+
+@Composable
+fun ExercisesList(
+    list: List<Exercise>,
+    modifier: Modifier = Modifier
+) {
+    LazyColumn(
+        modifier = modifier
+    ) {
+        items(list) { exercise ->
+            ExerciseItem(
+                item = exercise,
+                modifier = Modifier
+                    .padding(
+                        horizontal = dimensionResource(R.dimen.padding_medium),
+                        vertical = dimensionResource(R.dimen.padding_small)
+                    )
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ExercisesListPreview() {
+    FitnessDaysTheme {
+        ExercisesList(
+            list = ExercisesRepository.exercises
         )
     }
 }
